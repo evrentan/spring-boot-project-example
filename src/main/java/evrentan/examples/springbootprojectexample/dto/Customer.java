@@ -1,7 +1,7 @@
 package evrentan.examples.springbootprojectexample.dto;
 
 import evrentan.examples.springbootprojectexample.dto.shared.AbstractGenericDtoType;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,8 +12,8 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(callSuper = true)
 public class Customer extends AbstractGenericDtoType {
-  @ApiModelProperty(notes = "Customer Type")
+  @Schema(description = "Customer Type")
   private String customerType;
-  @ApiModelProperty(notes = "Customer Full Name")
+  @Schema(description = "Customer Full Name")
   private String customerFullName;
 }

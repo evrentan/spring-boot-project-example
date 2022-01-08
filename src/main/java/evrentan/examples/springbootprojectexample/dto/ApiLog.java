@@ -1,7 +1,9 @@
 package evrentan.examples.springbootprojectexample.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -10,35 +12,35 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 public class ApiLog {
-  @ApiModelProperty(value = "Collection Id")
+  @Schema(name = "Collection Id")
   private String id;
 
-  @ApiModelProperty(value = "Source IP Address")
+  @Schema(name = "Source IP Address")
   private String sourceIpAddress;
 
-  @ApiModelProperty(value = "HTTP Request Method", allowableValues = "POST, PUT, PATCH, GET, DELETE")
+  @Schema(name = "HTTP Request Method", allowableValues = "POST, PUT, PATCH, GET, DELETE")
   @NotNull
   private String httpRequestMethod;
 
-  @ApiModelProperty(value = "API EndPoint")
+  @Schema(name = "API EndPoint")
   @NotNull
   private String endPoint;
 
-  @ApiModelProperty(value = "API Request Payload")
+  @Schema(name = "API Request Payload")
   private String requestPayload;
 
-  @ApiModelProperty(value = "API Response Payload")
+  @Schema(name = "API Response Payload")
   private String responsePayload;
 
-  @ApiModelProperty(value = "API HTTP Status Code; https://httpstatuses.com")
+  @Schema(name = "API HTTP Status Code; https://httpstatuses.com")
   private Integer httpStatusCode;
 
-  @ApiModelProperty(value = "Total Duration of the API Call in MilliSeconds")
+  @Schema(name = "Total Duration of the API Call in MilliSeconds")
   private Long totalDuration;
 
-  @ApiModelProperty(value = "API Exception Message")
+  @Schema(name = "API Exception Message")
   private String exceptionMessage;
 
-  @ApiModelProperty(value = "API Call Date")
+  @Schema(name = "API Call Date")
   private Date callDate;
 }

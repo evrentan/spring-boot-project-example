@@ -18,7 +18,7 @@
         <dependency.mapstruct.version>1.4.1.Final</dependency.mapstruct.version>
         <dependency.org.apache.commons>2.1</dependency.org.apache.commons>
         <dependency.org.apache.commons.collections>4.1</dependency.org.apache.commons.collections>
-        <dependency.swaggerui>3.0.0</dependency.swaggerui>
+        <dependency.springdoc.openapi.version>1.6.4</dependency.springdoc.openapi.version>
     </properties>
     <dependencies>
         <dependency>
@@ -94,13 +94,12 @@
             <version>${dependency.org.apache.commons.collections}</version>
         </dependency>
 
-        <!-- swagger ui dependency-->
+        <!-- open api dependency-->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <version>${dependency.swaggerui}</version>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${dependency.springdoc.openapi.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>
