@@ -14,7 +14,7 @@ A Complete Spring Boot Example Project with Spring Boot 2.5.6, JDK 17 & Maven.
 
 For the contributor covenant to this project, please check the Code of Conduct file.
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/evrentan/spring-boot-project-example/blob/46d765858d1e4dce96810e1749599a11dc604fe4/CODE_OF_CONDUCT.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 ## Requirements
 
