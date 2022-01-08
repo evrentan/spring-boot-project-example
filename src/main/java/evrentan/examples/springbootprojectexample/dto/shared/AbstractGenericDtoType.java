@@ -1,6 +1,6 @@
 package evrentan.examples.springbootprojectexample.dto.shared;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +13,6 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode
 public abstract class AbstractGenericDtoType implements Serializable {
-  @ApiModelProperty(notes = "ID of the Instance")
+  @Schema(description = "ID of the Instance")
   private String id;
 }

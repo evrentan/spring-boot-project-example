@@ -4,10 +4,10 @@ import evrentan.examples.springbootprojectexample.annotation.ApiLogger;
 import evrentan.examples.springbootprojectexample.dto.Customer;
 import evrentan.examples.springbootprojectexample.dto.CustomerRef;
 import evrentan.examples.springbootprojectexample.service.ICustomerService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping(value = "/customer", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-@Api(value = "Customer Related APIs")
+@Tag(name = "Customer Related APIs")
 @ResponseBody
 public class CustomerController {
 
@@ -29,11 +29,11 @@ public class CustomerController {
   }
 
   @PostMapping
-  @ApiOperation(value = "Create a Customer")
+  @Operation(summary = "Create a Customer")
   @ApiResponses(value = {
-      @ApiResponse(code = 200, message = "Successfully Customer Created"),
-      @ApiResponse(code = 404, message = "Not Found"),
-      @ApiResponse(code = 500, message = "Internal Server Error")
+      @ApiResponse(responseCode  = "200", description  = "Successfully Customer Created"),
+      @ApiResponse(responseCode  = "404", description  = "Not Found"),
+      @ApiResponse(responseCode  = "500", description  = "Internal Server Error")
   })
   @ApiLogger
   ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
@@ -41,11 +41,11 @@ public class CustomerController {
   }
 
   @GetMapping
-  @ApiOperation(value = "Get All Customer Instances Reference IDs")
+  @Operation(summary = "Get All Customer Instances Reference IDs")
   @ApiResponses(value = {
-      @ApiResponse(code = 200, message = "Successfully Get All Customer Reference IDs"),
-      @ApiResponse(code = 404, message = "No Customer Reference IDs Found"),
-      @ApiResponse(code = 500, message = "Internal Server Error")
+      @ApiResponse(responseCode = "200", description = "Successfully Get All Customer Reference IDs"),
+      @ApiResponse(responseCode = "404", description = "No Customer Reference IDs Found"),
+      @ApiResponse(responseCode = "500", description = "Internal Server Error")
   })
   ResponseEntity<List<CustomerRef>> getAllCustomerRefs() {
     final List<CustomerRef> customerRefList = this.customerService.getAllCustomerRefs();
@@ -57,11 +57,11 @@ public class CustomerController {
   }
 
   @GetMapping(value = "/{id}")
-  @ApiOperation(value = "Get a Specific Customer Instance by ID")
+  @Operation(summary = "Get a Specific Customer Instance by ID")
   @ApiResponses(value = {
-      @ApiResponse(code = 200, message = "Successfully Get Customer By ID"),
-      @ApiResponse(code = 404, message = "No Customer Found With ID"),
-      @ApiResponse(code = 500, message = "Internal Server Error")
+      @ApiResponse(responseCode = "200", description = "Successfully Get Customer By ID"),
+      @ApiResponse(responseCode = "404", description = "No Customer Found With ID"),
+      @ApiResponse(responseCode = "500", description = "Internal Server Error")
   })
   ResponseEntity<Customer> getCustomerById(@PathVariable final String id) {
     final Customer customer = this.customerService.getCustomerById(id);
@@ -73,36 +73,36 @@ public class CustomerController {
   }
 
   @PatchMapping(value = "/{id}")
-  @ApiOperation(value = "Patch a Specific Customer Instance by ID")
+  @Operation(summary = "Patch a Specific Customer Instance by ID")
   @ApiResponses(value = {
-      @ApiResponse(code = 200, message = "Successfully Patch the Customer By ID"),
-      @ApiResponse(code = 400, message = "Bad Request for Patching the Customer"),
-      @ApiResponse(code = 404, message = "No Customer Found With ID"),
-      @ApiResponse(code = 500, message = "Internal Server Error")
+      @ApiResponse(responseCode = "200", description = "Successfully Patch the Customer By ID"),
+      @ApiResponse(responseCode = "400", description = "Bad Request for Patching the Customer"),
+      @ApiResponse(responseCode = "404", description = "No Customer Found With ID"),
+      @ApiResponse(responseCode = "500", description = "Internal Server Error")
   })
   ResponseEntity<Customer> patchCustomer(@PathVariable final String id, @RequestBody Customer customer) {
     return this.customerService.updateCustomer(id, customer);
   }
 
   @PutMapping(value = "/{id}")
-  @ApiOperation(value = "Put a Specific Customer Instance by ID")
+  @Operation(summary = "Put a Specific Customer Instance by ID")
   @ApiResponses(value = {
-      @ApiResponse(code = 200, message = "Successfully Put the Customer By ID"),
-      @ApiResponse(code = 400, message = "Bad Request for Putting the Customer"),
-      @ApiResponse(code = 404, message = "No Customer Found With ID"),
-      @ApiResponse(code = 500, message = "Internal Server Error")
+      @ApiResponse(responseCode = "200", description = "Successfully Put the Customer By ID"),
+      @ApiResponse(responseCode = "400", description = "Bad Request for Putting the Customer"),
+      @ApiResponse(responseCode = "404", description = "No Customer Found With ID"),
+      @ApiResponse(responseCode = "500", description = "Internal Server Error")
   })
   ResponseEntity<Customer> putCustomer(@PathVariable final String id, @RequestBody Customer customer) {
     return this.customerService.updateCustomer(id, customer);
   }
 
   @DeleteMapping(value = "/{id}")
-  @ApiOperation(value = "Delete a Specific Customer Instance by ID")
+  @Operation(summary = "Delete a Specific Customer Instance by ID")
   @ApiResponses(value = {
-      @ApiResponse(code = 200, message = "Successfully Put the Customer By ID"),
-      @ApiResponse(code = 400, message = "Bad Request for Putting the Customer"),
-      @ApiResponse(code = 404, message = "No Customer Found With ID"),
-      @ApiResponse(code = 500, message = "Internal Server Error")
+      @ApiResponse(responseCode = "200", description = "Successfully Put the Customer By ID"),
+      @ApiResponse(responseCode = "400", description = "Bad Request for Putting the Customer"),
+      @ApiResponse(responseCode = "404", description = "No Customer Found With ID"),
+      @ApiResponse(responseCode = "500", description = "Internal Server Error")
   })
   ResponseEntity<Customer> deleteCustomer(@PathVariable final String id) {
     return this.customerService.deleteCustomer(id);
