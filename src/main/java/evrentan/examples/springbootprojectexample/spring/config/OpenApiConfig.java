@@ -19,16 +19,16 @@ public class OpenApiConfig {
     public OpenAPI springShopOpenAPI() {
         Contact contact = new Contact();
         contact.setName("Evren Tan");
-        contact.setEmail("info@evrentan.co");
+        contact.setEmail("info@evrentan.com");
         contact.setUrl("https://evrentan.com");
         return new OpenAPI()
-                .info(new Info().title("My Swagger UI Example")
-                        .description("Example Project")
-                        .version("1.0.0")
-                        .contact(contact)
-                        .license(new License().name("Apache 2.0").url("http://springdoc.org")))
-                .externalDocs(new ExternalDocumentation()
-                        .description("Example Documentation"));
+            .info(new Info().title("Swagger UI")
+                .description("Spring Boot Project Example Swagger UI")
+                .version("1.0.0")
+                .contact(contact)
+                .license(new License().name("Apache 2.0").url("http://springdoc.org")))
+            .externalDocs(new ExternalDocumentation()
+                .description("Spring Boot Project Example Swagger UI"));
     }
 
     @Bean
