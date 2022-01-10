@@ -11,8 +11,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Objects;
 
@@ -63,7 +65,7 @@ public class CustomerController {
       @ApiResponse(responseCode = "404", description = "No Customer Found With ID"),
       @ApiResponse(responseCode = "500", description = "Internal Server Error")
   })
-  ResponseEntity<Customer> getCustomerById(@PathVariable final String id) {
+  ResponseEntity<Customer> getCustomerById(@NotNull @PathVariable final String id) {
     final Customer customer = this.customerService.getCustomerById(id);
 
     if (Objects.nonNull(customer))
@@ -80,7 +82,7 @@ public class CustomerController {
       @ApiResponse(responseCode = "404", description = "No Customer Found With ID"),
       @ApiResponse(responseCode = "500", description = "Internal Server Error")
   })
-  ResponseEntity<Customer> patchCustomer(@PathVariable final String id, @RequestBody Customer customer) {
+  ResponseEntity<Customer> patchCustomer(@Validated @NotNull @PathVariable final String id, @RequestBody Customer customer) {
     return this.customerService.updateCustomer(id, customer);
   }
 
@@ -92,7 +94,7 @@ public class CustomerController {
       @ApiResponse(responseCode = "404", description = "No Customer Found With ID"),
       @ApiResponse(responseCode = "500", description = "Internal Server Error")
   })
-  ResponseEntity<Customer> putCustomer(@PathVariable final String id, @RequestBody Customer customer) {
+  ResponseEntity<Customer> putCustomer(@Validated @NotNull @PathVariable final String id, @RequestBody Customer customer) {
     return this.customerService.updateCustomer(id, customer);
   }
 
