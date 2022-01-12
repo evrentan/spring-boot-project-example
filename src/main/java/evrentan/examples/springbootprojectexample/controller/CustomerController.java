@@ -21,7 +21,6 @@ import java.util.Objects;
 @RestController
 @RequestMapping(value = "/customer", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Customer Related APIs")
-@ResponseBody
 public class CustomerController {
 
   private final ICustomerService customerService;
