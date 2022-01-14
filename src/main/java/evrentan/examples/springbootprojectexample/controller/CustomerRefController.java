@@ -19,7 +19,6 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/refCustomer", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Customer Reference Related APIs")
-@ResponseBody
 public class CustomerRefController {
 
   private final ICustomerService customerService;
