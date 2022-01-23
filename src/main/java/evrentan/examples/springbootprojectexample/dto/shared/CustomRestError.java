@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 /**
  * Custom Rest Error class in order to handle returned error objects
  *
- * @author zhao wen, evren tan
+ * @author <a href="https://github.com/ybqdren">Zhao Wen</a>, <a href="https://github.com/evrentan">Evren Tan</a>
  * @since 1.0.0
  **/
 @AllArgsConstructor
@@ -16,6 +16,13 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class CustomRestError {
+  /**
+   * Status of the customized REST error in Integer type.
+   */
   private Integer status;
-  private String msg;
+
+  /**
+   * Message of the customized REST error in String type.
+   */
+  private String message;
 }

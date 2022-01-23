@@ -6,7 +6,7 @@ import java.lang.annotation.*;
  * ApiLogger Annotation Interface Implementation.
  * This annotation can be used in order to log API details on controller level.
  *
- * @author evren.tan
+ * @author <a href="https://github.com/evrentan">Evren Tan</a>
  * @since 1.0.0
  */
 @Target(ElementType.METHOD)
