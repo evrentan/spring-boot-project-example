@@ -18,6 +18,12 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * REST Controller for provided customer related API end-points.
+ *
+ * @author <a href="https://github.com/evrentan">Evren Tan</a>
+ * @since 1.0.0
+ */
 @RestController
 @RequestMapping(value = "/customer", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Customer Related APIs")
@@ -29,6 +35,16 @@ public class CustomerController {
     this.customerService = customerService;
   }
 
+  /**
+   * REST end-point in order to create a customer.
+   * Details related to API specs can be found in the API Documentation which can be reached as described in README file.
+   *
+   * @param customer object that is going to be created. Please, see the {@link evrentan.examples.springbootprojectexample.dto.Customer} class for details.
+   * @return Customer Object within ResponseEntity.
+   *
+   * @author <a href="https://github.com/evrentan">Evren Tan</a>
+   * @since 1.0.0
+   */
   @PostMapping
   @Operation(summary = "Create a Customer")
   @ApiResponses(value = {
@@ -41,6 +57,15 @@ public class CustomerController {
     return ResponseEntity.ok(this.customerService.createCustomer(customer));
   }
 
+  /**
+   * REST end-point in order to get all customer reference objects.
+   * Details related to API specs can be found in the API Documentation which can be reached as described in README file.
+   *
+   * @return List of CustomerRef Object within ResponseEntity. Please, see the {@link evrentan.examples.springbootprojectexample.dto.CustomerRef} class for details.
+   *
+   * @author <a href="https://github.com/evrentan">Evren Tan</a>
+   * @since 1.0.0
+   */
   @GetMapping
   @Operation(summary = "Get All Customer Instances Reference IDs")
   @ApiResponses(value = {
@@ -57,6 +82,16 @@ public class CustomerController {
     return ResponseEntity.notFound().build();
   }
 
+  /**
+   * REST end-point in order to retrieve a specific customer object by customer ID.
+   * Details related to API specs can be found in the API Documentation which can be reached as described in README file.
+   *
+   * @param id is the customer id that is going to be retrieved.
+   * @return Customer Object within ResponseEntity. Please, see the {@link evrentan.examples.springbootprojectexample.dto.Customer} class for details.
+   *
+   * @author <a href="https://github.com/evrentan">Evren Tan</a>
+   * @since 1.0.0
+   */
   @GetMapping(value = "/{id}")
   @Operation(summary = "Get a Specific Customer Instance by ID")
   @ApiResponses(value = {
@@ -73,6 +108,17 @@ public class CustomerController {
     return ResponseEntity.notFound().build();
   }
 
+  /**
+   * REST end-point in order to patch a specific customer object by customer ID.
+   * Details related to API specs can be found in the API Documentation which can be reached as described in README file.
+   *
+   * @param id is the customer id that is going to be patched.
+   * @param customer is the new object that is going to be patched within the existing one. Please, see the {@link evrentan.examples.springbootprojectexample.dto.Customer} class for details.
+   * @return Customer Object within ResponseEntity. Please, see the {@link evrentan.examples.springbootprojectexample.dto.Customer} class for details.
+   *
+   * @author <a href="https://github.com/evrentan">Evren Tan</a>
+   * @since 1.0.0
+   */
   @PatchMapping(value = "/{id}")
   @Operation(summary = "Patch a Specific Customer Instance by ID")
   @ApiResponses(value = {
@@ -85,6 +131,17 @@ public class CustomerController {
     return this.customerService.updateCustomer(id, customer);
   }
 
+  /**
+   * REST end-point in order to put a specific customer object by customer ID.
+   * Details related to API specs can be found in the API Documentation which can be reached as described in README file.
+   *
+   * @param id is the customer id that is going to be put.
+   * @param customer is the new object that is going to be put instead of the existing one. Please, see the {@link evrentan.examples.springbootprojectexample.dto.Customer} class for details.
+   * @return Customer Object within ResponseEntity. Please, see the {@link evrentan.examples.springbootprojectexample.dto.Customer} class for details.
+   *
+   * @author <a href="https://github.com/evrentan">Evren Tan</a>
+   * @since 1.0.0
+   */
   @PutMapping(value = "/{id}")
   @Operation(summary = "Put a Specific Customer Instance by ID")
   @ApiResponses(value = {
@@ -97,6 +154,16 @@ public class CustomerController {
     return this.customerService.updateCustomer(id, customer);
   }
 
+  /**
+   * REST end-point in order to delete a specific customer object by customer ID.
+   * Details related to API specs can be found in the API Documentation which can be reached as described in README file.
+   *
+   * @param id is the customer id that is going to be deleted.
+   * @return Customer Object within ResponseEntity. Please, see the {@link evrentan.examples.springbootprojectexample.dto.Customer} class for details.
+   *
+   * @author <a href="https://github.com/evrentan">Evren Tan</a>
+   * @since 1.0.0
+   */
   @DeleteMapping(value = "/{id}")
   @Operation(summary = "Delete a Specific Customer Instance by ID")
   @ApiResponses(value = {

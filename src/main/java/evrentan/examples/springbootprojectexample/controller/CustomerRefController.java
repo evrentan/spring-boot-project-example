@@ -16,6 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * REST Controller for provided customer reference related API end-points.
+ *
+ * @author <a href="https://github.com/evrentan">Evren Tan</a>
+ * @since 1.0.0
+ */
 @RestController
 @RequestMapping(value = "/refCustomer", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Customer Reference Related APIs")
@@ -27,6 +33,15 @@ public class CustomerRefController {
     this.customerService = customerService;
   }
 
+  /**
+   * REST end-point in order to get all customer reference objects.
+   * Details related to API specs can be found in the API Documentation which can be reached as described in README file.
+   *
+   * @return List of CustomerRef Object within ResponseEntity. Please, see the {@link evrentan.examples.springbootprojectexample.dto.CustomerRef} class for details.
+   *
+   * @author <a href="https://github.com/evrentan">Evren Tan</a>
+   * @since 1.0.0
+   */
   @GetMapping
   @Operation(summary = "Get All Customer Instances Reference IDs")
   @ApiResponses(value = {

@@ -4,23 +4,19 @@ import evrentan.examples.springbootprojectexample.dto.shared.CustomRestError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.server.MethodNotAllowedException;
 import org.springframework.web.servlet.NoHandlerFoundException;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.el.MethodNotFoundException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Global Exception Handler Class
  *
- * @author zhao wen, evren tan
+ * @author <a href="https://github.com/ybqdren">Zhao Wen</a>, <a href="https://github.com/evrentan">Evren Tan</a>
  * @since 1.0.0
  **/
 @RestControllerAdvice
@@ -32,14 +28,15 @@ public class GlobalRestExceptionHandler {
    * @param exception NoHandlerFoundException
    * @param request Web Request
    * @return ResponseEntity<CustomRestError>
-   * @author zhao wen, evren tan
+   *
+   * @author <a href="https://github.com/ybqdren">Zhao Wen</a>, <a href="https://github.com/evrentan">Evren Tan</a>
    * @since 1.0.0
    */
   @ExceptionHandler(value = {NoHandlerFoundException.class, MethodNotFoundException.class})
   public ResponseEntity<CustomRestError> processNoHandlerFoundException(final Exception exception, final HttpServletRequest request) {
     return responseEntity(CustomRestError.builder()
         .status(HttpStatus.NOT_FOUND.value())
-        .msg((HttpStatus.NOT_FOUND.getReasonPhrase()))
+        .message((HttpStatus.NOT_FOUND.getReasonPhrase()))
         .build());
   }
 
@@ -49,14 +46,15 @@ public class GlobalRestExceptionHandler {
    * @param exception Exception
    * @param request Web Request
    * @return ResponseEntity<CustomRestError>
-   * @author zhao wen, evren tan
+   *
+   * @author <a href="https://github.com/ybqdren">Zhao Wen</a>, <a href="https://github.com/evrentan">Evren Tan</a>
    * @since 1.0.0
    */
   @ExceptionHandler(value = {Exception.class})
   public ResponseEntity<CustomRestError> processException(final Exception exception, final HttpServletRequest request) {
     return responseEntity(CustomRestError.builder()
         .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-        .msg(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase())
+        .message(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase())
         .build());
   }
 
@@ -66,14 +64,15 @@ public class GlobalRestExceptionHandler {
    * @param exception Exception
    * @param request Web Request
    * @return ResponseEntity<CustomRestError>
-   * @author evren tan
+   *
+   * @author <a href="https://github.com/evrentan">Evren Tan</a>
    * @since 1.0.0
    */
   @ExceptionHandler(value = {MethodArgumentNotValidException.class})
   public ResponseEntity<CustomRestError> processBadRequestException(final Exception exception, final HttpServletRequest request) {
     return responseEntity(CustomRestError.builder()
         .status(HttpStatus.BAD_REQUEST.value())
-        .msg(HttpStatus.BAD_REQUEST.getReasonPhrase())
+        .message(HttpStatus.BAD_REQUEST.getReasonPhrase())
         .build());
   }
 
@@ -83,14 +82,15 @@ public class GlobalRestExceptionHandler {
    * @param exception Exception
    * @param request Web Request
    * @return ResponseEntity<CustomRestError>
-   * @author evren tan
+   *
+   * @author <a href="https://github.com/evrentan">Evren Tan</a>
    * @since 1.0.0
    */
   @ExceptionHandler(value = {MethodNotAllowedException.class, HttpClientErrorException.MethodNotAllowed.class})
   public ResponseEntity<CustomRestError> processMethodNotAllowedException(final Exception exception, final HttpServletRequest request) {
     return responseEntity(CustomRestError.builder()
         .status(HttpStatus.METHOD_NOT_ALLOWED.value())
-        .msg(HttpStatus.METHOD_NOT_ALLOWED.getReasonPhrase())
+        .message(HttpStatus.METHOD_NOT_ALLOWED.getReasonPhrase())
         .build());
   }
 
@@ -99,7 +99,8 @@ public class GlobalRestExceptionHandler {
    *
    * @param error CustomerError to build the ResponseEntity
    * @return ResponseEntity<CustomRestError>
-   * @author zhao wen, evren tan
+   *
+   * @author <a href="https://github.com/ybqdren">Zhao Wen</a>, <a href="https://github.com/evrentan">Evren Tan</a>
    * @since 1.0.0
    */
   private ResponseEntity<CustomRestError> responseEntity(CustomRestError error) {

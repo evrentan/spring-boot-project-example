@@ -8,7 +8,8 @@ A Complete Spring Boot Example Project with Spring Boot 2.5.6, JDK 17 & Maven.
 3. [Running the Application Locally](#running-the-application-locally)
 4. [Run Actuator](#run-actuator)
 5. [Run Swagger UI Documentation](#run-swagger-ui-documentation)
-6. [Copyright](#copyright)
+6. [Javadoc](#javadoc)
+7. [Copyright](#copyright)
 
 ## How to Contribute
 
@@ -43,6 +44,13 @@ mvn spring-boot:run
 [Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) can be reached from [local url for Actuator](http://localhost:8081/actuator).
 
 Only health and caches endpoints are enabled by default. Configuration can be updated within the "actuator" section of the related application.properties file. This file can be also in Spring Cloud Config Server if the application is booted with Spring Cloud Config Server.
+
+##Javadoc
+You can create Javadoc with the below command or directly from your IDE.
+
+```shell
+mvn javadoc:javadoc
+```
 
 ##Run Swagger UI Documentation
 After running the application, just type the  [local url for Swagger UI](http://localhost:8080/swagger-ui/index.html) in your browser.

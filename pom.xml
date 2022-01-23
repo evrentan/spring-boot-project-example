@@ -16,9 +16,10 @@
     <properties>
         <java.version>17</java.version>
         <dependency.mapstruct.version>1.4.1.Final</dependency.mapstruct.version>
-        <dependency.org.apache.commons>2.1</dependency.org.apache.commons>
+        <dependency.org.apache.commons>3.12.0</dependency.org.apache.commons>
         <dependency.org.apache.commons.collections>4.1</dependency.org.apache.commons.collections>
         <dependency.springdoc.openapi.version>1.6.4</dependency.springdoc.openapi.version>
+        <dependency.maven.javadoc.plugin>3.0.0</dependency.maven.javadoc.plugin>
     </properties>
     <dependencies>
         <dependency>
@@ -55,7 +56,6 @@
             <artifactId>validation-api</artifactId>
         </dependency>
 
-
         <!-- mongodb dependency -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -84,7 +84,7 @@
         <!-- apache commons dependency -->
         <dependency>
             <groupId>org.apache.commons</groupId>
-            <artifactId>commons-vfs2</artifactId>
+            <artifactId>commons-lang3</artifactId>
             <version>${dependency.org.apache.commons}</version>
         </dependency>
         <!-- apache commons collections4 dependency -->
@@ -115,6 +115,11 @@
                         </exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${dependency.maven.javadoc.plugin}</version>
             </plugin>
         </plugins>
     </build>
