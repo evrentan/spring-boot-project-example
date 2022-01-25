@@ -46,6 +46,7 @@ mvn spring-boot:run
 Only health and caches endpoints are enabled by default. Configuration can be updated within the "actuator" section of the related application.properties file. This file can be also in Spring Cloud Config Server if the application is booted with Spring Cloud Config Server.
 
 ##Javadoc
+
 You can create Javadoc with the below command or directly from your IDE.
 
 ```shell
