@@ -21,7 +21,7 @@ For the contributor covenant to this project, please check the Code of Conduct f
 
 For building and running the application belows are required;
 
-- [Spring Boot 2.5.6](https://spring.io/blog/2021/10/21/spring-boot-2-5-6-is-now-available)
+- [Spring Boot 2.6.2](https://spring.io/blog/2021/12/21/spring-boot-2-6-2-available-now)
 - [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 - [Maven 3.8.3](https://maven.apache.org)
 - Springfox Boot Starter 3.0.0 for Swagger UI Documentation
