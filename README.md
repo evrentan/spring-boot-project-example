@@ -1,5 +1,5 @@
 # A Complete Spring Boot Example Project
-A Complete Spring Boot Example Project with Spring Boot 2.5.6, JDK 17 & Maven.
+A Complete Spring Boot Example Project with Spring Boot 2.6.2, JDK 17 & Maven.
 
 ## Table of Contents
 
@@ -39,13 +39,13 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 mvn spring-boot:run
 ```
 
-##Run Actuator
+## Run Actuator
 
 [Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) can be reached from [local url for Actuator](http://localhost:8081/actuator).
 
 Only health and caches endpoints are enabled by default. Configuration can be updated within the "actuator" section of the related application.properties file. This file can be also in Spring Cloud Config Server if the application is booted with Spring Cloud Config Server.
 
-##Javadoc
+## Javadoc
 
 You can create Javadoc with the below command or directly from your IDE.
 
