@@ -53,8 +53,15 @@ You can create Javadoc with the below command or directly from your IDE.
 mvn javadoc:javadoc
 ```
 
-##Run Swagger UI Documentation
+## Run Swagger UI Documentation
+
 After running the application, just type the  [local url for Swagger UI](http://localhost:8080/swagger-ui/index.html) in your browser.
+
+## Extra Notes
+
+[![GitKraken Client](https://img.shields.io/badge/GitKraken-Legendary%20Git%20Tools-teal?style=plastic&logo=gitkraken)](https://www.gitkraken.com/invite/eNppBA83)
+
+This repo was made with love using [GitKraken Client](https://www.gitkraken.com/invite/eNppBA83).
 
 ## Copyright
 
