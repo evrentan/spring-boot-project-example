@@ -37,7 +37,7 @@ public class MessageUtilityServiceImpl {
     return getMessage(messageKey, messageArguments, null);
   }
 
-  public static String getMessage(String key, Locale locale, Object... messageArguments) {
-    return MessageFormat.format(getBundle(locale).getString(key), messageArguments);
+  public static String getMessage(String messageKey, Locale locale, Object... messageArguments) {
+    return MessageFormat.format(getBundle(locale).getString(messageKey), messageArguments);
   }
 }
