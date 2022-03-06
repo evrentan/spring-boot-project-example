@@ -1,6 +1,8 @@
 package evrentan.examples.springbootprojectexample.exception;
 
 import evrentan.examples.springbootprojectexample.dto.shared.CustomRestError;
+import evrentan.examples.springbootprojectexample.message.MessageUtilityServiceImpl;
+import evrentan.examples.springbootprojectexample.utility.CommonUtility;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -12,6 +14,8 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.el.MethodNotFoundException;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Locale;
+import java.util.Objects;
 
 /**
  * Global Exception Handler Class
@@ -52,9 +56,11 @@ public class GlobalRestExceptionHandler {
    */
   @ExceptionHandler(value = {Exception.class})
   public ResponseEntity<CustomRestError> processException(final Exception exception, final HttpServletRequest request) {
+    final String locale = CommonUtility.getHeaderValue("locale");
+
     return responseEntity(CustomRestError.builder()
         .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-        .message(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase())
+        .message(MessageUtilityServiceImpl.getMessage("customException.internalServerError.message", Objects.nonNull(locale) ? new Locale(locale) : null))
         .build());
   }
 
@@ -88,9 +94,11 @@ public class GlobalRestExceptionHandler {
    */
   @ExceptionHandler(value = {MethodNotAllowedException.class, HttpClientErrorException.MethodNotAllowed.class})
   public ResponseEntity<CustomRestError> processMethodNotAllowedException(final Exception exception, final HttpServletRequest request) {
+    final String locale = CommonUtility.getHeaderValue("locale");
+
     return responseEntity(CustomRestError.builder()
         .status(HttpStatus.METHOD_NOT_ALLOWED.value())
-        .message(HttpStatus.METHOD_NOT_ALLOWED.getReasonPhrase())
+        .message(MessageUtilityServiceImpl.getMessage("customException.methodNotAllowedException.message", Objects.nonNull(locale) ? new Locale(locale) : null))
         .build());
   }
 
