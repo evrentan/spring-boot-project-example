@@ -82,4 +82,21 @@ public class CommonUtility {
     }
     return null;
   }
+
+  /**
+   * Method in order to get the specified header name from HTTP service request.
+   *
+   * @param headerName Please, see the {@link String} class for details.
+   * @return String headerName which is the specified header name.
+   *
+   * @author <a href="https://github.com/evrentan">Evren Tan</a>
+   * @since 1.0.0
+   */
+  public static String getHeaderValue(String headerName) {
+    HttpServletRequest httpServletRequest = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
+    if (Objects.nonNull(httpServletRequest.getHeader(headerName)))
+      return httpServletRequest.getHeader(headerName);
+
+    return null;
+  }
 }
