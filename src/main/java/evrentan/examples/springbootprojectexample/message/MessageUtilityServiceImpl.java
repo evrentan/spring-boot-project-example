@@ -19,25 +19,25 @@ public class MessageUtilityServiceImpl {
     return ResourceBundle.getBundle("messages", locale);
   }
 
-  public static String getMessage(String key) {
-    String message = "Message key not found !!!";
+  public static String getMessage(String messageKey) {
+    String message = "messageKey not found !!!";
     try {
-      message = getBundle(null).getString(key);
+      message = getBundle(null).getString(messageKey);
     }catch (Exception e) {
-      logger.error(String.format("Error while getting message for key %s", key), e);
+      logger.error(String.format("Error while getting message for messageKey %s", messageKey), e);
     }
     return message;
   }
 
-  public static String getMessage(String key, Locale locale) {
-    return getBundle(locale).getString(key);
+  public static String getMessage(String messageKey, Locale locale) {
+    return getBundle(locale).getString(messageKey);
   }
 
-  public static String getMessage(String key, Object... messageArguments) {
-    return getMessage(key, messageArguments, null);
+  public static String getMessage(String messageKey, Object... messageArguments) {
+    return getMessage(messageKey, messageArguments, null);
   }
 
-  public static String getMessage(String key, Object[] params, Locale locale) {
-    return MessageFormat.format(getBundle(locale).getString(key), params);
+  public static String getMessage(String key, Locale locale, Object... messageArguments) {
+    return MessageFormat.format(getBundle(locale).getString(key), messageArguments);
   }
 }
