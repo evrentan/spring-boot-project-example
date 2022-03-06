@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.text.MessageFormat;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MessageUtilityServiceImpl {
@@ -13,7 +14,7 @@ public class MessageUtilityServiceImpl {
 
   public static ResourceBundle getBundle(Locale locale) {
     if(locale == null) {
-      locale = defaultLocale;
+      locale = Optional.of(Locale.getDefault()).orElse(defaultLocale);
     }
     return ResourceBundle.getBundle("messages", locale);
   }
