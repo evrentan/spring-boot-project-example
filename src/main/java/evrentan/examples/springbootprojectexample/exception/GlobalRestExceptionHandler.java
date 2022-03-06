@@ -26,6 +26,8 @@ import java.util.Objects;
 @RestControllerAdvice
 public class GlobalRestExceptionHandler {
 
+  private static String RETRY_AFTER_MINUTES = "5";
+
   /**
    * To handle general Not Found exception cases for returning Not Found status
    *
@@ -60,7 +62,7 @@ public class GlobalRestExceptionHandler {
 
     return responseEntity(CustomRestError.builder()
         .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-        .message(MessageUtilityServiceImpl.getMessage("customException.internalServerError.message", Objects.nonNull(locale) ? new Locale(locale) : null))
+        .message(MessageUtilityServiceImpl.getMessage("customException.internalServerError.message", Objects.nonNull(locale) ? new Locale(locale) : null, RETRY_AFTER_MINUTES))
         .build());
   }
 
